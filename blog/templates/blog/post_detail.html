@@ -12,5 +12,19 @@
     {% endif %}
     <h2>{{ post.title }}</h2>
     <p>{{ post.text|linebreaksbr }}</p>
+    <h2 id="test">[[ msg ]]</h2>
   </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+  
+    createApp({
+      data() {
+        return {
+          msg: 'Hello, Vue'
+        }
+      },
+      delimiters: ['[[', ']]']
+    }).mount('#test');
+  </script>
 {% endblock %}
